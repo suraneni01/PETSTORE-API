@@ -21,9 +21,9 @@ func NewService(petstore petstore.Interface) *Service {
 		router:   mux.NewRouter(),
 	}
 
-	s.router.Methods("GET").Path("/pets").HandlerFunc(s.listPets)
-	s.router.Methods("GET").Path("/pets/{id:[0-9]+}").HandlerFunc(s.getPet)
-	s.router.Methods("POST").Path("/pets").HandlerFunc(s.addPet)
+	s.router.Methods(http.MethodGet).Path("/pets").HandlerFunc(s.listPets)
+	s.router.Methods(http.MethodGet).Path("/pets/{id:[0-9]+}").HandlerFunc(s.getPet)
+	s.router.Methods(http.MethodPost).Path("/pets").HandlerFunc(s.addPet)
 
 	return &s
 }
